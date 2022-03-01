@@ -5,187 +5,176 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { AppBar, Avatar, Box, Button, Container, IconButton, Toolbar, Tooltip, Typography, Menu, MenuItem } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
-
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+import Header from '../components/Header/Header'
+import HeaderLinks from '../components/Header/HeaderLinks'
 
 const Home: NextPage = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
     <div className={styles.container}>
-      <Head>
-        <AppBar position="static">
-          <Container maxWidth="xl">
-            <Toolbar disableGutters>
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-              >
-                LOGO
-              </Typography>
+      <Header 
+        brand="NextJS Material Kit"
+        rightLinks={<HeaderLinks />}
+        fixed
+        color="#transparent"
+        changeColorOnScroll={{
+          height: 400,
+          color: "#ff0000",
+        }}
+      />
+      <div>
+        <Box>
+          <Typography variant='h3'>The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
 
-              <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                <IconButton
-                  size="large"
-                  aria-label="account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={handleOpenNavMenu}
-                  color="inherit"
-                >
-                  <MenuIcon />
-                </IconButton>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorElNav}
-                  anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'left',
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
-                  }}
-                  open={Boolean(anchorElNav)}
-                  onClose={handleCloseNavMenu}
-                  sx={{
-                    display: { xs: 'block', md: 'none' },
-                  }}
-                >
-                  {pages.map((page) => (
-                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">{page}</Typography>
-                    </MenuItem>
-                  ))}
-                </Menu>
-              </Box>
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-              >
-                LOGO
-              </Typography>
-              <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                {pages.map((page) => (
-                  <Button
-                    key={page}
-                    onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: 'white', display: 'block' }}
-                  >
-                    {page}
-                  </Button>
-                ))}
-              </Box>
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
 
-              <Box sx={{ flexGrow: 0 }}>
-                <Tooltip title="Open settings">
-                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                  </IconButton>
-                </Tooltip>
-                <Menu
-                  sx={{ mt: '45px' }}
-                  id="menu-appbar"
-                  anchorEl={anchorElUser}
-                  anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  open={Boolean(anchorElUser)}
-                  onClose={handleCloseUserMenu}
-                >
-                  {settings.map((setting) => (
-                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                      <Typography textAlign="center">{setting}</Typography>
-                    </MenuItem>
-                  ))}
-                </Menu>
-              </Box>
-            </Toolbar>
-          </Container>
-        </AppBar>
-      </Head>
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to My Project Next.js!
-        </h1>
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed.The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+
+However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
+
+Therefore, TypeScript will imply them to be any. And implicit any in strict mode is not allowed. </Typography>
+        </Box>
+      </div>
+      
     </div>
   )
 }
