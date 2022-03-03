@@ -21,17 +21,17 @@ const headerLinksStyle = (theme) => ({
     width: "auto",
     margin: "0",
     padding: "0",
-    // [theme.breakpoints.down("sm")]: {
-    //   width: "100%",
-    //   "&:after": {
-    //     width: "calc(100% - 30px)",
-    //     content: '""',
-    //     display: "block",
-    //     height: "1px",
-    //     marginLeft: "15px",
-    //     backgroundColor: "#e5e5e5",
-    //   },
-    // },
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      "&:after": {
+        width: "calc(100% - 30px)",
+        content: '""',
+        display: "block",
+        height: "1px",
+        marginLeft: "15px",
+        backgroundColor: "#e5e5e5",
+      },
+    },
   },
   listItemText: {
     padding: "0 !important",
@@ -52,22 +52,22 @@ const headerLinksStyle = (theme) => ({
       color: "inherit",
       background: "rgba(200, 200, 200, 0.2)",
     },
-    // [theme.breakpoints.down("sm")]: {
-    //   width: "calc(100% - 30px)",
-    //   marginLeft: "15px",
-    //   marginBottom: "8px",
-    //   marginTop: "8px",
-    //   textAlign: "left",
-    //   "& > span:first-child": {
-    //     justifyContent: "flex-start",
-    //   },
-    // },
+    [theme.breakpoints.down("sm")]: {
+      width: "calc(100% - 30px)",
+      marginLeft: "15px",
+      marginBottom: "8px",
+      marginTop: "8px",
+      textAlign: "left",
+      "& > span:first-child": {
+        justifyContent: "flex-start",
+      },
+    },
   },
   notificationNavLink: {
-    // [theme.breakpoints.down("md")]: {
-    //   top: "0",
-    //   margin: "5px 15px",
-    // },
+    [theme.breakpoints.down("md")]: {
+      top: "0",
+      margin: "5px 15px",
+    },
     color: "#FFF",
     padding: "0.9375rem",
     fontWeight: "400",
@@ -80,10 +80,10 @@ const headerLinksStyle = (theme) => ({
     top: "4px",
   },
   registerNavLink: {
-    // [theme.breakpoints.down("md")]: {
-    //   top: "0",
-    //   margin: "5px 15px",
-    // },
+    [theme.breakpoints.down("md")]: {
+      top: "0",
+      margin: "5px 15px",
+    },
     top: "3px",
     position: "relative",
     fontWeight: "400",

@@ -1,14 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
-import { Button, Icon, List, ListItem, Menu, MenuItem, Tooltip } from '@mui/material'
+import { Button, createTheme, Icon, List, ListItem, Menu, MenuItem, Tooltip } from '@mui/material'
 import { makeStyles } from '@mui/styles';
 import { CloudDownload } from '@mui/icons-material';
 import styles from '../../styles/jss/components/headerLinksStyle.js'
 
 interface HeaderLinksProps {
 }
-
-const useStyles = makeStyles(styles as any);
+const theme = createTheme();
+const useStyles = makeStyles(styles(theme) as any);
 
 const HeaderLinks: React.FC<HeaderLinksProps> = (props: HeaderLinksProps) => {
   const classes = useStyles();
