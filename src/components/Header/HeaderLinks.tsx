@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import { Button, createTheme, Icon, List, ListItem, Menu, MenuItem, Tooltip } from '@mui/material'
+import { Button, createTheme, Icon, List, ListItem, Menu, MenuItem, Tooltip, Typography } from '@mui/material'
 import { makeStyles } from '@mui/styles';
-import { CloudDownload } from '@mui/icons-material';
+import { Alarm, CloudDownload } from '@mui/icons-material';
+import CsButton from '../CustomButtons/Button';
 import styles from '../../styles/jss/components/headerLinksStyle.js'
 
 interface HeaderLinksProps {
@@ -46,24 +47,24 @@ const HeaderLinks: React.FC<HeaderLinksProps> = (props: HeaderLinksProps) => {
         </Menu>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Button
-          color="info"
-          href="#"
-          target="_blank"
+        <CsButton
+          color="transparent"
+          // href="#"
+          // target="_blank"
           className={classes.navLink}
         >
           <Icon className={classes.icons}>unarchive</Icon> Upgrade to PRO
-        </Button>
+        </CsButton>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Button
-          href="#"
-          color="info"
-          target="_blank"
+        <CsButton
+          // href="#"
+          color="transparent"
+          // target="_blank"
           className={classes.navLink}
         >
           <CloudDownload className={classes.icons} /> Download
-        </Button>
+        </CsButton>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Tooltip
@@ -72,14 +73,15 @@ const HeaderLinks: React.FC<HeaderLinksProps> = (props: HeaderLinksProps) => {
           placement={"top"}
           classes={{ tooltip: classes.tooltip }}
         >
-          <Button
-            href="#"
-            target="_blank"
-            color="info"
+          <CsButton
+            // href="https://twitter.com/CreativeTim?ref=creativetim"
+            // target="_blank"
+            color="transparent"
             className={classes.navLink}
           >
+            {/* <Alarm/> */}
             <i className={classes.socialIcons + " fab fa-twitter"} />
-          </Button>
+          </CsButton>
         </Tooltip>
       </ListItem>
       <ListItem className={classes.listItem}>
@@ -89,14 +91,14 @@ const HeaderLinks: React.FC<HeaderLinksProps> = (props: HeaderLinksProps) => {
           placement={"top"}
           classes={{ tooltip: classes.tooltip }}
         >
-          <Button
-            color="info"
-            href="#"
-            target="_blank"
+          <CsButton
+            color="transparent"
+            // href="#"
+            // target="_blank"
             className={classes.navLink}
           >
             <i className={classes.socialIcons + " fab fa-facebook"} />
-          </Button>
+          </CsButton>
         </Tooltip>
       </ListItem>
       <ListItem className={classes.listItem}>
@@ -106,14 +108,14 @@ const HeaderLinks: React.FC<HeaderLinksProps> = (props: HeaderLinksProps) => {
           placement={"top"}
           classes={{ tooltip: classes.tooltip }}
         >
-          <Button
-            color="info"
-            href="#"
-            target="_blank"
+          <CsButton
+            color="transparent"
+            // href="#"
+            // target="_blank"
             className={classes.navLink}
           >
             <i className={classes.socialIcons + " fab fa-instagram"} />
-          </Button>
+          </CsButton>
         </Tooltip>
       </ListItem>
     </List>

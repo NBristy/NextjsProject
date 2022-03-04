@@ -1,5 +1,4 @@
 import { defaultFont } from "../mainStyle.js";
-
 import tooltip from "./tooltipsStyle.js";
 
 const headerLinksStyle = (theme) => ({

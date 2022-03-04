@@ -15,15 +15,15 @@ const Home: NextPage = () => {
         brand="NextJS Material Kit"
         rightLinks={<HeaderLinks />}
         fixed
-        color="#transparent"
+        color="transparent"
         changeColorOnScroll={{
           height: 400,
-          color: "#ff0000",
+          color: "white",
         }}
       />
       <div>
         <Box>
-          <Typography variant='h3'>The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
+          <Typography variant='h5'>The constructor function is a bit special. You need to pass your props there (even if you don’t have any), and TypeScript requires you to pass the to the super constructor function.
 
 However, when writing the typical pattern of constructors and super calls in TypeScript’s strict mode, you will get an error if you don’t provide any typings yourself. This is because you create a new class, with a completly new constructor, and TypeScript does not know which parameters to expect!
 
