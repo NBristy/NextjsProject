@@ -16,7 +16,8 @@ interface ButtonProps {
 	justIcon?: boolean,
 	children?: ReactNode,
 	className: string,
-	rest?: any
+  // onAction?: () => void;
+	[x: string]: any
 }
 const makeComponentStyles = makeStyles((()=>({...buttonStyle})) as any);
 
@@ -33,6 +34,7 @@ const RegularButton = React.forwardRef<HTMLButtonElement, ButtonProps>((props, r
     link,
     justIcon,
     className,
+    // onAction,
     ...rest
   } = props;
 

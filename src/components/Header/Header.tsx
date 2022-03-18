@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
-import { AppBar, Button, Drawer, Hidden, IconButton, Toolbar, Typography } from '@mui/material';
+import { AppBar, Button, Drawer, Hidden, IconButton, Toolbar } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Menu } from '@mui/icons-material';
 import styles from '../../styles/jss/components/headerStyle.js';

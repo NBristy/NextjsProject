@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import { Button, createTheme, Icon, List, ListItem, Menu, MenuItem, Tooltip, Typography } from '@mui/material'
 import { makeStyles } from '@mui/styles';
 import { Alarm, CloudDownload } from '@mui/icons-material';
@@ -24,17 +23,20 @@ const HeaderLinks: React.FC<HeaderLinksProps> = (props: HeaderLinksProps) => {
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
-        {/* custom */}
-        <Button
-          id="basic-button"
-          aria-controls="basic-menu"
-          aria-haspopup="true"
+        {/* dropdown */}
+        <CsButton
+          id={"basic-button"}
+          color="transparent"
+          className={classes.navLink}
+          aria-controls={"basic-menu"}
+          aria-haspopup={"true"}
           aria-expanded={open ? 'true' : undefined}
-          onClick={handleClick}
+          // onClick={handleClick}
         >
           Home
-        </Button>
-        <Menu 
+        </CsButton>
+        {/* <Menu 
+          id={"basic-menu"}
           anchorEl={anchorEl}
           open={open}
           onClose={handleClose}
@@ -44,7 +46,7 @@ const HeaderLinks: React.FC<HeaderLinksProps> = (props: HeaderLinksProps) => {
         >
           <MenuItem onClick={handleClose}>Home One</MenuItem>
           <MenuItem onClick={handleClose}>Home two</MenuItem>
-        </Menu>
+        </Menu> */}
       </ListItem>
       <ListItem className={classes.listItem}>
         <CsButton

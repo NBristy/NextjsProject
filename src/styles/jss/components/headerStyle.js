@@ -48,7 +48,6 @@ const headerStyle = {
     justifyContent: "space-between",
     display: "flex",
     flexWrap: "nowrap",
-    backgroundColor: "#f44336"
   },
   flex: {
     flex: 1,
